@@ -1,6 +1,6 @@
 
 import random as rnd 
-import fatih
+
 def Work_Package(workP2Out,isColor,uzunluk):
     if(isColor==True):
         size = 8*3*uzunluk  #ip5 paketi resim boyutu
@@ -62,6 +62,6 @@ def randomsayi(gelendeger):
     uzunluk=len(gelendeger)
     y=xor(Work_Package(workP2Out,True,uzunluk), gelendeger,len(gelendeger))
     print("xorlanmış",y)
-    fatih.resim(y)
+    return y
        
         
