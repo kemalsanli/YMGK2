@@ -1,5 +1,7 @@
 import cv2
+import hash
 import numpy as np
+from PIL import Image
 
 
 def resim(gelen):
@@ -18,7 +20,6 @@ def resim(gelen):
 
 
     #key2=np.dtype(np.uint8)
-    print(fth)
 
 
     encryption = cv2.bitwise_xor(demo, fth) # encryption
@@ -26,7 +27,12 @@ def resim(gelen):
  
     cv2.imshow("Sifrelenmis", encryption) # Display ciphertext image
     cv2.imshow("Acilmis", decryption) # Display the decrypted image
- 
+    
+    img = Image.fromarray(encryption)
+    img.save('testrgba.png')
+    print(hash.hashIt('testrgba.png'))
+    
+
     cv2.waitKey(-1)
     cv2.destroyAllWindows()
 
