@@ -1,5 +1,6 @@
 import cv2
 import hash
+import kaydet
 import numpy as np
 from PIL import Image
 
@@ -28,8 +29,7 @@ def resim(gelen,demo):
     cv2.imshow("Sifrelenmis", encryption) # Display ciphertext image
     cv2.imshow("Acilmis", decryption) # Display the decrypted image
     
-    img = Image.fromarray(encryption)
-    img.save('testrgba.png')
+    kaydet.kaydet(encryption,'testrgba.png')
     print(hash.hashIt('testrgba.png'))
     
 
