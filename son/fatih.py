@@ -24,8 +24,8 @@ def resim(gelen):
     encryption = cv2.bitwise_xor(demo, fth) # encryption
     decryption = cv2.bitwise_xor(encryption, fth) # decryption
  
-    cv2.imshow("encryption", encryption) # Display ciphertext image
-    cv2.imshow("decryption", decryption) # Display the decrypted image
+    cv2.imshow("Sifrelenmis", encryption) # Display ciphertext image
+    cv2.imshow("Acilmis", decryption) # Display the decrypted image
  
     cv2.waitKey(-1)
     cv2.destroyAllWindows()
