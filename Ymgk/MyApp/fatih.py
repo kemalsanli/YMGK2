@@ -1,10 +1,11 @@
 import cv2
-from . import hash
-from . import kaydet
+import hash
+import kaydet
 import numpy as np
 from PIL import Image
 
-def anahtarOlustur(gelen):
+def anahtarOlustur(gorsel,gelen):
+    r, c ,t= gorsel.shape
     key = np.random.choice(gelen,size=(r, c,t)) 
     mylist = []
 
