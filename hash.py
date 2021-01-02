@@ -1,5 +1,6 @@
 import hashlib
 
+
 def hashIt(filepath):
     file = filepath# Location of the file (can be set a different way)
     BLOCK_SIZE = 65536 # The size of each read from the file
