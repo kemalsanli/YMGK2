@@ -4,6 +4,20 @@ from . import kaydet
 import numpy as np
 from PIL import Image
 
+def anahtarOlustur(gelen):
+    key = np.random.choice(gelen,size=(r, c,t)) 
+    mylist = []
+
+    for i in key:
+        arr = np.array(i, dtype=np.uint8)
+        mylist.append(arr)
+    fth = np.array(mylist)
+    return fth
+
+def xor(gorsel, anahtar):
+    r, c ,t= gorsel.shape
+    return cv2.bitwise_xor(gorsel, anahtar)
+
 def resim(gelen,demo):
     #gelen=[107,116,61,144,204,8,62,225,191,177,84,158,51,46,207,216,15,231,107,69,37,37,198,18,246,254,37,234,71,77,245,134]
     

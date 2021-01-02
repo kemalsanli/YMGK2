@@ -1,4 +1,5 @@
 from PIL import Image
+import numpy as np
 
 def kaydet(array, filename):
     img = Image.fromarray(array)
