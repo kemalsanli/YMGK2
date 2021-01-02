@@ -16,12 +16,20 @@ path = "koala.jpeg"
 gorsel = cv2.imread(path)
 hashFile = hash.hashIt(path)
 
+
+if  os.path.exists('key') == False:
+    os.mkdir('key')
+    
+if  os.path.exists('temp') == False:
+        os.mkdir('temp')
+
 #Gelen hash değeri key klasörürün altında var ise koşulumuzu çalıştırdık.
 if  os.path.exists(('key/{}.png'.format(hashFile))):
     
     #Keyi okuduk xor yaptık ve kaydettik
     key = cv2.imread(('key/{}.png'.format(hashFile)))
     sifresiz = fatih.xor(gorsel,key)
+    
     kaydet.kaydet(sifresiz,'temp/sifresiz.png')
     #İsimiz bitince key'i sildik.
     os.remove(('key/{}.png'.format(hashFile)))
