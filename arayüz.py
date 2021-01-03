@@ -135,3 +135,4 @@ btn = Button(root, text="Lütfen bir resim dosyası seçin.", command=select_ima
 btn.pack(side="bottom", fill="both", expand="yes", padx="10", pady="10")
 
 root.mainloop()
+dosyaac.Clear_Console()
