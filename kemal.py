@@ -7,7 +7,7 @@ import cv2
 
 
 SHASH = '4f54e67cb598e8219158647e4f54e67cb598e8219158647e6340af13ab3b07b48f2501226d2f516f0be110584f54e67cb598e8219158647e6340af13ab3b07b48f2501226d2f516f0be110586340af13ab3b07b48f2501226d2f516f0be11058'
-path = "koala.jpeg"
+path = "4k.jpg"
 
 def ymgk2xor(path,ServerHash):
     #Seçilen görseli okuduk.
