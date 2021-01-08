@@ -19,5 +19,5 @@ from MyApp import views
 
 urlpatterns = [
     url(r'admin/', admin.site.urls),
-    url(r'deneme/', views.Sayislem),
+    url(r'api/', views.Sayislem),
 ]
