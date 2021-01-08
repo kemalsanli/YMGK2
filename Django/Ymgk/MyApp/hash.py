@@ -1,4 +1,6 @@
 import hashlib
+import random
+
 
 
 def hashIt(filepath):
@@ -12,4 +14,10 @@ def hashIt(filepath):
          file_hash.update(fb) # Update the hash
          fb = f.read(BLOCK_SIZE) # Read the next block from the file
 
-    return (file_hash.hexdigest()) 
+    return (file_hash.hexdigest())
+
+def populateHash(hash):
+    for x in range(5, random.randint(10,20)):
+        hash_object = hashlib.sha512(hash.encode())
+        hash = hash + hash_object.hexdigest()
+    return hash
