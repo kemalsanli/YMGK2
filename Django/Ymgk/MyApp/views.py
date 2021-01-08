@@ -55,12 +55,10 @@ def Sayislem(sayi):
         # print(file_obj)
 
         gelendeger=sayi.data['hash']
-        print(gelendeger,"gelen")
         folder='resimler/'
         resim = sayi.data['image']
         fs = FileSystemStorage(location=folder)
         filename = fs.save(resim.name, resim)
-        print(filename)
         SHASH = gelendeger
         path = "resimler/"+filename
 
@@ -68,7 +66,6 @@ def Sayislem(sayi):
         # img = Image.open('temp/sonuc.png')
         with open('temp/sonuc.png', "rb") as img:
             return HttpResponse(img.read(), content_type='image/png')
-        print(img)
 
     except ValueError as e:
         return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
