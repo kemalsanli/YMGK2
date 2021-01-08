@@ -40,9 +40,9 @@ def ymgk2xor(path,ServerHash):
         populatedHash=hash.populateHash(ServerHash)
         #Hexten decimale çevirdik
         gelendeger=fatih.hexToDec(populatedHash)
-        #Gelen değeri aldık anahtar oluşturduk, anahtar oluştururken boyutlarını almak için orijinal görseli de dahil ettik.
+        #Anahtar oluşturmak için ip3'teki gerekli eylemleri tamamladık.
         keySource = emine.randomsayi(gelendeger)
-
+        #Gelen değeri aldık anahtar oluşturduk, anahtar oluştururken boyutlarını almak için orijinal görseli de dahil ettik.
         anahtar = fatih.anahtarOlustur(gorsel, keySource)
 
         #Xorladık ve dönen değeri pillow ile diziden .png uzantılı bir dosyaya çevirip kaydettik.
