@@ -113,7 +113,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is now a string
+MEDIA_ROOT = os.path.join(BASE_DIR, 'temp')
+
+MEDIA_URL = '/b6c1461c13886e9228ba8a3de212a431d097d550dcee986a3601e9347a9f25e2/'  # This is now a string
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Static files (CSS, JavaScript, Images)

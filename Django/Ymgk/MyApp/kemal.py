@@ -4,8 +4,6 @@ from . import kaydet
 from . import hash
 import os
 import cv2
-import glob
-
 
 
 
@@ -53,6 +51,3 @@ def ymgk2xor(path,ServerHash):
         kaydet.kaydet(anahtar,('key/{}.png'.format(sifreliHash)))
 
 
-    files = glob.glob('resimler/*')
-    for f in files:
-        os.remove(f)
