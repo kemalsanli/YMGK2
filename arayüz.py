@@ -4,8 +4,8 @@ import tkinter as tk
 from PIL import Image
 from PIL import ImageTk
 import os
-import emine
-import fatih
+import crypto
+import xor
 import kaydet
 import hash
 import os
@@ -60,7 +60,7 @@ def select_image():
                 os.mkdir('temp')
         if  os.path.exists(('key/{}.png'.format(hashFile))):
             key = cv2.imread(('key/{}.png'.format(hashFile)))
-            sifresiz = fatih.xor(gorsel,key)
+            sifresiz = xor.xor(gorsel, key)
 
             kaydet.kaydet(sifresiz,'temp/sonuc.png')
             os.remove(('key/{}.png'.format(hashFile)))
@@ -68,12 +68,12 @@ def select_image():
             #Hash'i olasılıkları artırmak adına biraz uzattık.
             populatedHash=hash.populateHash(SHASH)
             #Hexten decimale çevirdik
-            gelendeger=fatih.hexToDec(populatedHash)
+            gelendeger=xor.hexToUint8(populatedHash)
             #Gelen değeri aldık anahtar oluşturduk, anahtar oluştururken boyutlarını almak için orijinal görseli de dahil ettik.
-            keySource = emine.randomsayi(gelendeger)
+            keySource = crypto.randomsayi(gelendeger)
 
-            anahtar = fatih.anahtarOlustur(gorsel, keySource)
-            sifrelenmis = fatih.xor(gorsel, anahtar)
+            anahtar = xor.anahtarOlustur(gorsel, keySource)
+            sifrelenmis = xor.xor(gorsel, anahtar)
 
             kaydet.kaydet(sifrelenmis,'temp/sonuc.png')
             sifreliHash = hash.hashIt('temp/sonuc.png')
