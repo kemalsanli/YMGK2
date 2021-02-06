@@ -43,7 +43,7 @@ pip install opencv-python Pillow numpy
 * Uygulamayı çalıştırmak için komut satırı üzerinde dosyaların bulunduğu klasöre gelip verilen komutu çalıştırın. 
 
 ```
-python arayüz.py
+python userInterface.py
 ```
 * Artık uygulamyı kullanmaya hazırsınız. 
 
