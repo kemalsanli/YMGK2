@@ -45,7 +45,7 @@ def xor(Work3, gelendeger, n):
     return ans
 # Create your views here.
 
-def randomsayi(gelendeger):
+def rng(gelendeger):
     #gelendeger=[107,116,61,144,204,8,62,225,191,177,84,158,51,46,207,216,15,231,107,69,37,37,198,18,246,254,37,234,71,77,245,134]
     i=0
     workP2Out=list()

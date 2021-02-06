@@ -1,17 +1,16 @@
 import crypto
 import xor
-import kaydet
+import save
 import hash
 import os
-import cv2
 
 
 
-def ymgk2xor(path,ServerHash):
+def ymgk2xor(imagePath, generatedHash):
     #Seçilen görseli okuduk.
-    gorsel = cv2.imread(path)
+    image = cv2.imread(imagePath)
     #Seçilen Dosyanın Hash'ini alıyor.
-    hashFile = hash.hashIt(path)
+    hashFile = hash.hashIt(imagePath)
 
     #Klasör kontrolü yoksa oluşturuluyor.
     if  os.path.exists('key') == False:
@@ -25,9 +24,9 @@ def ymgk2xor(path,ServerHash):
 
         #Keyi okuduk xor yaptık ve kaydettik
         key = cv2.imread(('key/{}.png'.format(hashFile)))
-        sifresiz = xor.xor(gorsel, key)
+        decryptedImage = xor.xor(image, key)
 
-        kaydet.kaydet(sifresiz,'temp/sifresiz.png')
+        save.saveAsImage(decryptedImage, 'temp/decryptedImage.png')
         #İsimiz bitince key'i sildik.
         os.remove(('key/{}.png'.format(hashFile)))
 
@@ -35,17 +34,17 @@ def ymgk2xor(path,ServerHash):
     #Key olmadığı durumlarda ise..
     else:
         #Hash'i olasılıkları artırmak adına biraz uzattık.
-        populatedHash=hash.populateHash(ServerHash)
+        populatedHash=hash.populateHash(generatedHash)
         #Hexten uint8'e çevirdik
-        gelendeger=xor.hexToUint8(populatedHash)
+        uint8Hash=xor.hexToUint8(populatedHash)
         #Anahtar oluşturmak için ip3'teki gerekli eylemleri tamamladık.
-        keySource = crypto.randomsayi(gelendeger)
+        keySource = crypto.rng(uint8Hash)
         #Gelen değeri aldık anahtar oluşturduk, anahtar oluştururken boyutlarını almak için orijinal görseli de dahil ettik.
-        anahtar = xor.anahtarOlustur(gorsel, keySource)
+        key = xor.createNewKey(image, keySource)
 
         #Xorladık ve dönen değeri pillow ile diziden .png uzantılı bir dosyaya çevirip kaydettik.
-        sifrelenmis = xor.xor(gorsel, anahtar)
+        encryptedImage = xor.xor(image, key)
 
-        kaydet.kaydet(sifrelenmis,'temp/sifreli.png')
-        sifreliHash = hash.hashIt('temp/sifreli.png')
-        kaydet.kaydet(anahtar,('key/{}.png'.format(sifreliHash)))
+        save.saveAsImage(encryptedImage, 'temp/encryptedImage.png')
+        encryptedImageHash = hash.hashIt('temp/encryptedImage.png')
+        save.saveAsImage(key, ('key/{}.png'.format(encryptedImageHash)))

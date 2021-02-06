@@ -1,12 +1,12 @@
 from PIL import Image
 import numpy as np
 
-def kaydet(array, filename):
+def saveAsImage(array, filename):
     img = Image.fromarray(array)
     img.save(filename)
      
 
-def oku(filepath):
+def readAsNpArray(filepath):
     img = Image.open(filepath)
     array = np.array(img)
     return (array) 
